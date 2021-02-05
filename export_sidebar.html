@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://miro.com/app/static/styles.1.0.css"/>
+    <style>
+        .rtb-sidebar-caption {
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.8);
+            padding: 24px 0 0 24px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="rtb-sidebar-caption">Data exporter</div>
+<div class="no-selected-widget">Please select one the following formats to export data</div>
+<div class="container">
+    <label for="export_formats">Select output format:</label>
+    <select name="export_formats" id="export_formats">
+        <option value="CSV">CSV</option>
+        <option value="JSON">JSON</option>
+        <option value="XML">XML</option>
+        <option value="EAP">Enterprise Architecture</option>
+    </select>
+</div>
+<div id="button_row">
+    <button id="export_buttonl" class="miro-btn miro-btn--primary miro-btn--medium">Export</button>
+    <button id="close_button" class="miro-btn miro-btn--secondary miro-btn--medium">Close</button>
+</div>
+<script src="https://miro.com/app/static/sdk.1.1.js"></script>
+<script src="js/sidebar.js"></script>
+</body>
+</html>
