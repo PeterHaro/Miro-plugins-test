@@ -24,6 +24,7 @@ function getBoardName(boardName, bearer) {
 
 function getBoardWidgetsSdk() {
     miro.board.widgets.get().then(function (response) {
+        console.log(response);
         return response;
     });
 }
