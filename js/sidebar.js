@@ -80,11 +80,11 @@ async function saveData(widgetId, metadata) {
 
 async function getData(widgetId) {
     const appId = await miro.getClientId()
-    let widgets = await getBoardWidgetsSdk();
-    widgets.then(result => {
-        widgets = result;
+    let widgets = null;
+    await miro.board.widgets.get().then(function (response) {
+        console.log(response);
+        widgets = response;
     });
-
     for(const widget of widgets) {
         if (widget.id === widgetId) {
             return widget.metadata[appId];
