@@ -62,6 +62,9 @@ const LS_KEY = 'rtb-plugin-widget-info'
 }*/
 
 async function saveData(widgetId, metadata) {
+    if (metadata === "[object Object]") {
+        return;
+    }
     const appId = miro.getClientId()
     //let widgets = getBoardWidgetsSdk();
     let widgets = null;
