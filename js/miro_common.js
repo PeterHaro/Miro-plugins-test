@@ -1,6 +1,12 @@
 const sticky_board_id = "o9J_lVvvXXw=";
 const applicationId = "3074457354078869572";
 
+function getBoardNameSdk() {
+    miro.board.info.get().then(function (infoObject) {
+        return infoObject.title;
+    });
+}
+
 function getBoardName(boardName, bearer) {
     fetch("https://api.miro.com/v1/boards/" + boardName, {
         "method": "GET",
@@ -17,7 +23,9 @@ function getBoardName(boardName, bearer) {
 }
 
 function getBoardWidgetsSdk() {
-    
+    miro.board.widgets.get().then(function (response) {
+        return response;
+    });
 }
 
 function getBoardWidgets(boardId, bearer) {
@@ -33,6 +41,10 @@ function getBoardWidgets(boardId, bearer) {
         .catch(err => {
             console.error(err);
         });
+}
+
+function getSpecificWidgetSdk(widgetId) {
+
 }
 
 function getSpecificWidget(widgetId) {

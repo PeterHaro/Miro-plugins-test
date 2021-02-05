@@ -31,9 +31,10 @@ function convertToCsv(filename, entries) {
 
 function export_widgets() {
     //let board = getBoardName(sticky_board_id, bearer);
-    let title = miro.board.info.get().title;
+    let title = getBoardNameSdk();
     //let entries = getBoardWidgets(sticky_board_id, bearer);
-    let entries = miro.board.widgets.get();
+    let entries = getBoardWidgetsSdk();
+    //let entries = miro.board.widgets.get().then();
     let outputFormat = document.getElementById("export_formats").value;
 
     switch (outputFormat) {

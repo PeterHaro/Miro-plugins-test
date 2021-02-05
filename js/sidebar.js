@@ -62,13 +62,27 @@ const LS_KEY = 'rtb-plugin-widget-info'
 }*/
 
 function saveData(widgetId, metadata) {
-    let response = updateWidget(widgetId, metadata);
-    console.log(response);
+    const appId = miro.getClientId()
+    let widgets = getBoardWidgetsSdk();
+    for(const widget of widgets) {
+        if (widget.id === widgetId) {
+            widget.metadata[appId] = metadata;
+            break;
+        }
+    }
+    //let response = updateWidget(widgetId, metadata);
+    //console.log(response);
 }
 
 function getData(widgetId) {
-    let data = getSpecificWidget(widgetId);
-    return data.metadata;
+    const appId = miro.getClientId()
+    let widgets = getBoardWidgetsSdk();
+    for(const widget of widgets) {
+        if (widget.id === widgetId) {
+            return widget.metadata[appId];
+        }
+    }
+    return "";
 }
 
 /*function getData(widgetId) {
