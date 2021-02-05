@@ -1,3 +1,4 @@
+let export_button = document.querySelector("#export_buttonl");
 export_button.addEventListener('click', export_widgets);
 
 function convertToCsv(filename, entries) {

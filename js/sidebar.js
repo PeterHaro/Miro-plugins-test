@@ -3,7 +3,6 @@ let widgetName = document.querySelector('#widget-name');
 let widgetInfo = document.querySelector('.widget-info');
 let editor = document.querySelector('#editor');
 let placeholder = document.querySelector('.no-selected-widget');
-let export_button = document.querySelector("#export_buttonl");
 
 function onSelectionChange(e) {
     let selectedWidgets = e.data
