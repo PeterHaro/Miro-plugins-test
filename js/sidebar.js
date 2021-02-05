@@ -61,9 +61,9 @@ const LS_KEY = 'rtb-plugin-widget-info'
     //Use miro API to upload the entry to widget for cross-machine collab
 }*/
 
-function saveData(widgetId, metadata) {
-    const appId = miro.getClientId()
-    let widgets = getBoardWidgetsSdk();
+async function saveData(widgetId, metadata) {
+    const appId = await miro.getClientId()
+    let widgets = await getBoardWidgetsSdk();
     for(const widget of widgets) {
         if (widget.id === widgetId) {
             widget.metadata[appId] = metadata;
@@ -74,9 +74,9 @@ function saveData(widgetId, metadata) {
     //console.log(response);
 }
 
-function getData(widgetId) {
-    const appId = miro.getClientId()
-    let widgets = getBoardWidgetsSdk();
+async function getData(widgetId) {
+    const appId = await miro.getClientId()
+    let widgets = await getBoardWidgetsSdk();
     for(const widget of widgets) {
         if (widget.id === widgetId) {
             return widget.metadata[appId];
