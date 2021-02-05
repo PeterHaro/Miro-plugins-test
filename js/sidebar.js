@@ -18,7 +18,7 @@ async function updateSelection(selectedWidgets) {
         lastSelectedWidgetId = selectedWidget.id
         widgetName.innerText = selectedWidget.type
         let data = await getData(lastSelectedWidgetId);
-        editor.value = data;
+        editor.value = data["textual_metadata"];
     } else {
         showElement(placeholder)
         hideElement(widgetInfo)
@@ -79,7 +79,8 @@ async function saveData(widgetId, metadata) {
     for (const widget of widgets) {
         if (widget.id === widgetId) {
             widget.metadata = metadata_payload;
-            await miro.board.widgets.update(widget);
+            //await miro.board.widgets.update(widget);
+            await miro.board.widgets.update([widget]);
             break;
         }
     }
