@@ -76,3 +76,12 @@ function updateWidget(widgetId, payload) {
             console.error(err);
         });
 }
+
+function createStickerSdk(text, height, width) {
+    miro.board.widgets.create({
+        type: 'sticker',
+        text: `${text}%`,
+        height: height,
+        width: width
+    });
+}
