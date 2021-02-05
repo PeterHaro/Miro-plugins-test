@@ -81,7 +81,6 @@ async function saveData(widgetId, metadata) {
 async function getData(widgetId) {
     const appId = await miro.getClientId()
     let widgets = await getBoardWidgetsSdk();
-    //PRobably here aswell
     widgets.then(result => {
         widgets = result;
     });
