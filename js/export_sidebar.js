@@ -30,17 +30,24 @@ function convertToCsv(filename, entries) {
 
 }
 
-function export_widgets() {
+async function export_widgets() {
     //let board = getBoardName(sticky_board_id, bearer);
-    let title = getBoardNameSdk();
+    let title = "";
+    await miro.board.info.get().then(function (infoObject) {
+        title = infoObject.title;
+    });
     //let entries = getBoardWidgets(sticky_board_id, bearer);
-    let entries = getBoardWidgetsSdk();
+    let widgets = null;
+    await miro.board.widgets.get().then(function (response) {
+        console.log(response);
+        widgets = response;
+    });
     //let entries = miro.board.widgets.get().then();
     let outputFormat = document.getElementById("export_formats").value;
 
     switch (outputFormat) {
         case "CSV":
-            return convertToCsv(title, entries);
+            return convertToCsv(title, widgets);
         case "JSON":
             return ""
         case "XML":
