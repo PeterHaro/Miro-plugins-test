@@ -9,7 +9,7 @@ function onSelectionChange(e) {
     updateSelection(selectedWidgets)
 }
 
-function updateSelection(selectedWidgets) {
+async function updateSelection(selectedWidgets) {
     let selectedWidget = selectedWidgets[0]
     if (selectedWidgets.length === 1) {
         showElement(widgetInfo)
@@ -17,7 +17,8 @@ function updateSelection(selectedWidgets) {
         saveEditorData()
         lastSelectedWidgetId = selectedWidget.id
         widgetName.innerText = selectedWidget.type
-        editor.value = getData(lastSelectedWidgetId)
+        let data = await await getData(lastSelectedWidgetId);
+        editor.value = data;
     } else {
         showElement(placeholder)
         hideElement(widgetInfo)
