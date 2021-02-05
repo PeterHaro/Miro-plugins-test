@@ -17,7 +17,7 @@ async function updateSelection(selectedWidgets) {
         saveEditorData()
         lastSelectedWidgetId = selectedWidget.id
         widgetName.innerText = selectedWidget.type
-        let data = await await getData(lastSelectedWidgetId);
+        let data = await getData(lastSelectedWidgetId);
         editor.value = data;
     } else {
         showElement(placeholder)
