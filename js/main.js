@@ -9,13 +9,6 @@ miro.onReady(() => {
                     miro.board.ui.openLeftSidebar('sidebar.html')
                 },
             },
-        },
-    })
-})
-
-miro.onReady(() => {
-    miro.initialize({
-        extensionPoints: {
             bottomBar: {
                 title: "Data exporter",
                 svgIcon:
