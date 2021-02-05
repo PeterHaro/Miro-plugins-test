@@ -68,10 +68,13 @@ async function saveData(widgetId, metadata) {
         console.log(response);
         widgets = response;
     });
+
+    const metadata_payload = {"metadata":{applcationId: metadata}};
+
     for(const widget of widgets) {
         if (widget.id === widgetId) {
             widget.metadata = metadata;
-            await miro.board.widgets.update(widget);
+            await miro.board.widgets.update([{id: widgetId, metadata: metadata_payload}]);
             break;
         }
     }
