@@ -88,7 +88,7 @@ async function getData(widgetId) {
     });
     for(const widget of widgets) {
         if (widget.id === widgetId) {
-            return widget.metadata[appId];
+            return await widget.metadata[appId];
         }
     }
     return "";

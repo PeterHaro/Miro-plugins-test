@@ -2,7 +2,8 @@ let export_button = document.querySelector("#export_buttonl");
 export_button.addEventListener('click', export_widgets);
 
 function convertToCsv(filename, entries) {
-    const items = entries.data;
+    //const items = entries.data; // ONLY FOR API
+    const items = entries;
     const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
     const header = Object.keys(items[0])
     const csv = [
