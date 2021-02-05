@@ -69,9 +69,13 @@ async function saveData(widgetId, metadata) {
         widgets = response;
     });
 
-    const metadata_payload = {"metadata":{applcationId: metadata}};
+    const metadata_payload = {
+        [applicationId]: {
+            textual_metadata: metadata
+        }
+    };
 
-    for(const widget of widgets) {
+    for (const widget of widgets) {
         if (widget.id === widgetId) {
             widget.metadata = metadata;
             await miro.board.widgets.update([{id: widgetId, metadata: metadata_payload}]);
@@ -89,7 +93,7 @@ async function getData(widgetId) {
         console.log(response);
         widgets = response;
     });
-    for(const widget of widgets) {
+    for (const widget of widgets) {
         if (widget.id === widgetId) {
             return await widget.metadata[appId];
         }
