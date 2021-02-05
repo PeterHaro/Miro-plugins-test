@@ -105,8 +105,6 @@ function convertToCsv(filename, entries) {
 
 }
 
-export_button.addEventListener('click', export_widgets);
-
 function export_widgets() {
     let board = getBoardName(sticky_board_id, bearer);
     let entries = getBoardWidgets(sticky_board_id, bearer);
