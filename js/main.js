@@ -15,15 +15,15 @@ miro.onReady(() => {
                     miro.board.ui.openLeftSidebar('sidebar.html')
                 },
             },
+            toolbar: {
+                title: "Data exporter",
+                toolbarSvgIcon: icon24,
+                librarySvgIcon: icon48,
+                onClick: function() {
+                    miro.board.ui.openLeftSidebar('export_sidebar.html')
+                },
+            }
         },
-        toolbar: {
-            title: "Data exporter",
-            toolbarSvgIcon: icon24,
-            librarySvgIcon: icon48,
-            onClick: function() {
-                miro.board.ui.openLeftSidebar('export_sidebar.html')
-            },
-        }
     })
 })
 
