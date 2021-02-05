@@ -16,6 +16,10 @@ function getBoardName(boardName, bearer) {
         });
 }
 
+function getBoardWidgetsSdk() {
+    
+}
+
 function getBoardWidgets(boardId, bearer) {
     fetch("https://api.miro.com/v1/boards/" + boardId + "/widgets/", {
         "method": "GET",

@@ -30,13 +30,15 @@ function convertToCsv(filename, entries) {
 }
 
 function export_widgets() {
-    let board = getBoardName(sticky_board_id, bearer);
-    let entries = getBoardWidgets(sticky_board_id, bearer);
+    //let board = getBoardName(sticky_board_id, bearer);
+    let title = miro.board.info.get().title;
+    //let entries = getBoardWidgets(sticky_board_id, bearer);
+    let entries = miro.board.widgets.get();
     let outputFormat = document.getElementById("export_formats").value;
 
     switch (outputFormat) {
         case "CSV":
-            return convertToCsv(board.name, entries);
+            return convertToCsv(title, entries);
         case "JSON":
             return ""
         case "XML":
@@ -44,6 +46,6 @@ function export_widgets() {
         case "EAP":
             return "";
         default:
-            alert("Could not export the data. Invalid output format, you selected: " + OUTPUT_FORMAT);
+            alert("Could not export the data. Invalid output format, you selected: " + outputFormat);
     }
 }
