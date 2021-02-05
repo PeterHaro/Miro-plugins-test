@@ -8,7 +8,22 @@ miro.onReady(() => {
                 onClick: function () {
                     miro.board.ui.openLeftSidebar('sidebar.html')
                 },
-            }
+            },
+        },
+    })
+})
+
+miro.onReady(() => {
+    miro.initialize({
+        extensionPoints: {
+            bottomBar: {
+                title: "Data exporter",
+                svgIcon:
+                    '<circle cx="12" cy="12" r="9" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="2"/>',
+                onClick: function() {
+                    miro.board.ui.openLeftSidebar('export_sidebar.html')
+                },
+            },
         },
     })
 })
